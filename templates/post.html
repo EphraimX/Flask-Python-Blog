@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block head%}
+
+{%endblock%}
+
+
+{% block body %}
+	<div>
+		<br>
+		<h1 style="display: inline;">All posts</h1>
+		<a class="btn btn-success " href="/posts/new">Create New Post</a>
+	</div>
+		{%for post in posts%}
+		<hr>
+			<br>
+			<h2>Title: {{post.title}}</h2>
+			<small>Written by {{post.author}} on {{post.date_posted}}</small>
+			<br>
+			<br>
+			<p style="white-space: pre-wrap;">{{post.content}}</p>
+
+			<a class="btn btn-danger" href='/posts/delete/{{post.id_num}}'>Delete</a>
+			<a class="btn btn-primary" href='/posts/edit/{{post.id_num}}'>Edit</a>
+			<br>
+		</hr>
+		{% endfor %}
+{% endblock %}
